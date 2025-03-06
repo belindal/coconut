@@ -1,0 +1,38 @@
+# Configuration for training only the router components
+
+project: coconut
+save_path: checkpoints/gpt2
+name: gsm-router-only
+
+only_eval: False
+
+coconut: True
+cot: False
+no_thoughts: False
+no_cot: False
+
+c_thought: 2
+epochs_per_stage: 1  # We'll use the max stage directly
+max_latent_stage: 3
+pad_latent_to_max: True
+
+save_only_improve: True
+uniform_prob: 0.0
+model_id: openai-community/gpt2
+load_model_path: checkpoints/gpt2/gsm-coconut/checkpoint_9  # Path to your trained Coconut model
+seed: 0
+resume: 0
+bf16: False
+train_path: data/gsm_train.json
+val_path: data/gsm_valid.json
+reset_optimizer: False
+batch_size_training: 32
+debug: False
+gradient_accumulation_steps: 1
+num_epochs: 5  # Fewer epochs since we're just fine-tuning the router
+lr: !!float "1e-1"  # Will be reduced by 0.1 in the script
+weight_decay: 0.01 
+
+distributed_training: False
+train_router_only: True
+train_base_model_only: True

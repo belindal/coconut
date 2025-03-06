@@ -1,7 +1,7 @@
 # need 4 gpus
 
 project: coconut
-save_path: YOUR_PATH_TO_SAVE_THE_MODEL
+save_path: checkpoints/gpt2
 name: gsm-coconut
 
 only_eval: False
@@ -19,7 +19,7 @@ pad_latent_to_max: True
 save_only_improve: False
 uniform_prob: 0.0
 model_id: openai-community/gpt2
-load_model_path: YOUR_PATH_TO_COT_CHECKPOINT
+load_model_path: checkpoints/gpt2/gsm-cot/checkpoint_15
 seed: 0
 resume: 3
 bf16: False
@@ -27,7 +27,7 @@ train_path: data/gsm_train.json
 val_path: data/gsm_valid.json
 reset_optimizer: True
 batch_size_training: 32
-debug: False
+debug: True
 gradient_accumulation_steps: 1
 num_epochs: 25
 lr: !!float "1e-4"

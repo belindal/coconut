@@ -88,7 +88,7 @@ The configuration of a run should be specified in a yaml file (an example can be
 Run the following commands (replacing `N_GPUS` and `PATH_TO_ARGS`):
 
 ```
-torchrun --nnodes 1 --nproc_per_node N_GPUS run.py PATH_TO_ARGS
+torchrun --nnodes 1 --nproc_per_node 1 --master_port 29501 run.py PATH_TO_ARGS
 ```
 
 ## Reproducing Experiments
@@ -122,6 +122,11 @@ Find the checkpoint with best validation accuracy, and put the path as `load_mod
 
 ```bash
 torchrun --nnodes 1 --nproc_per_node 4 run.py args/gsm_coconut_eval.yaml
+```
+
+Train router:
+```bash
+torchrun --nnodes 1 --nproc_per_node 2 --master_port 29501 train_router_only.py args/gsm_router_only.yaml
 ```
 
 ### ProntoQA

@@ -14,12 +14,12 @@ no_cot: False
 c_thought: 2
 epochs_per_stage: 3
 max_latent_stage: 3
-pad_latent_to_max: True
+pad_latent_to_max: False
 
 save_only_improve: False
 uniform_prob: 0.0
 model_id: openai-community/gpt2
-load_model_path: YOUR_PATH_TO_COCONUT_CHECKPOINT
+load_model_path: checkpoints/gpt2/gsm-coconut/checkpoint_9
 seed: 0
 resume: 15
 bf16: False
